@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <!--nav bar-->
+    <section class=" font-poppins bg-blue-50  :bg-gray-800">
+        <div class="max-w-6xl px-4 mx-auto" x-data="{open:false}">
+            <nav class="flex items-center justify-between py-4">
+                <a href="" class="text-3xl font-semibold leading-none  :text-gray-400">SmartParker</a>
+                <div class="flex lg:hidden">
+                    <a href="#"
+                        class="inline-block px-4 py-3 mr-2 text-xs font-semibold leading-none text-blue-600 border border-blue-400 rounded  :hover:text-blue-300  :text-gray-400  :border-gray-400 hover:text-blue-700 hover:border-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </a>
+                    <button
+                        class="flex items-center px-3 py-2 text-blue-600 border border-blue-400 rounded  :text-gray-400 hover:text-blue-800 hover:border-blue-300  :border-gray-400 lg:hidden"
+                        @click="open =true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </button>
+
+                </div>
+
+                <ul class="hidden lg:w-auto lg:space-x-12 lg:items-center lg:flex ">
+                    <li><a href="./index.html" class="text-sm text-gray-700 hover:text-blue-700  :text-gray-400  :hover:text-blue-300">Home</a>
+                    </li>
+                    <li><a href="./wallet.html" class="text-sm text-gray-700 hover:text-blue-700  :text-gray-400  :hover:text-blue-300">Wallet</a>
+                    </li>
+                    <li><a href="" class="text-sm text-gray-700 hover:text-blue-700  :text-gray-400  :hover:text-blue-300">Features</a>
+                    </li>
+                    <li><a href="./contact.html" class="text-sm text-gray-700 hover:text-blue-700  :text-gray-400  :hover:text-blue-300">Contact Us </a>
+                    
+                </ul>
+                <div class="hidden lg:flex">
+                    <a href=""
+                        class="inline-block px-4 py-3 mr-4 text-xs font-semibold leading-none text-blue-500 border border-blue-300 rounded  :hover:text-blue-300  :text-gray-400  :border-gray-400 hover:text-blue-700 hover:border-blue-500  :hover:border-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </a>
+                    <a href="./signin.html"
+                        class="inline-block px-4 py-3 mr-2 text-sm font-semibold leading-none text-gray-100 bg-blue-600 border border-blue-200 rounded  :hover:border-blue-400  :hover:bg-blue-400  :border-blue-300  :bg-blue-300  :text-gray-700 hover:bg-blue-700">
+                        Logout
+                    </a>
+
+                </div>
+            </nav>
+            <!-- Mobile Sidebar -->
+            <div class="fixed inset-0 w-full bg-gray-800 opacity-25  :bg-gray-400 lg:hidden"
+                :class="{'translate-x-0 ease-in-opacity-100' :open===true, '-translate-x-full ease-out opacity-0' : open===false}">
+            </div>
+            <div class="absolute inset-0 z-10 h-screen p-3 text-gray-700 duration-500 transform shadow-md  :bg-gray-800 bg-blue-50 w-80 lg:hidden lg:transform-none lg:relative"
+                :class="{'translate-x-0 ease-in-opacity-100' :open===true, '-translate-x-full ease-out opacity-0' : open===false}">
+                <div class="flex justify-between px-5 py-2">
+                    <a class="text-2xl font-bold  :text-gray-400" href="#">Logo</a>
+                    <button class="rounded-md hover:text-blue-300 lg:hidden  :text-gray-400" @click="open=false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-x-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <ul class="px-5 text-left mt-7">
+                    <li class="pb-3">
+                        <a href="" class="text-sm text-gray-700 hover:text-blue-400  :text-gray-100">Home</a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="" class="text-sm text-gray-700 hover:text-blue-400  :text-gray-400">About us</a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="" class="text-sm text-gray-700 hover:text-blue-400  :text-gray-400">Features</a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="" class="text-sm text-gray-700 hover:text-blue-400  :text-gray-400">Contact Us </a>
+                    </li>
+                </ul>
+                <div class="px-4 mt-7 lg:hidden">
+
+                    <a href="./signin.html"
+                        class="inline-block w-full py-3 mr-2 text-xs font-medium leading-none text-center text-gray-100 bg-blue-600 border border-blue-200 rounded px-7  :hover:border-blue-400  :hover:bg-blue-400  :border-blue-300  :bg-blue-300  :text-gray-700 hover:bg-blue-700">
+                        Logout
+                    </a>
+                </div>
+            </div>
+    </section>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    
+    <!--contactus-->
+    <section
+    class="flex items-center bg-gradient-to-r from-gray-50 to-blue-50 xl:h-screen font-poppins  :from-gray-900  :to-gray-900 ">
+    <div class="justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-10 md:px-7">
+        <div class="flex flex-wrap items-center justify-center -mx-4">
+            <div class="w-full px-4 lg:w-1/2">
+                <div class="max-w-sm mx-auto ">
+                    <div
+                        class="p-6 mb-6 text-center bg-white border rounded-md shadow  :border-gray-800  :bg-gray-800">
+                        <form action="">
+                            <div class="mb-6">
+                                <h2 class="text-xl font-bold text-gray-700  :text-gray-400">
+                                    Please send message for futher information! </h2>
+                            </div>
+                            <div class="flex flex-wrap mb-4 -mx-2">
+                                <div class="w-full px-2 mb-4 lg:mb-0 lg:w-1/2">
+                                    <input
+                                        class="w-full px-3 py-2 leading-loose bg-gray-100 border rounded-md  :text-gray-400  :bg-gray-700  :border-gray-700"
+                                        type="text" placeholder="First Name.." required>
+                                </div>
+                                <div class="w-full px-2 lg:w-1/2">
+                                    <input
+                                        class="w-full px-3 py-2 leading-loose bg-gray-100 border rounded-md  :text-gray-400  :bg-gray-700  :border-gray-700"
+                                        type="text" placeholder="Last Name.." required>
+                                </div>
+                            </div>
+                            <input
+                                class="w-full px-3 py-2 mb-4 leading-loose bg-gray-100 border rounded-md  :text-gray-400  :bg-gray-700  :border-gray-700"
+                                type="email" placeholder="abc@gmail.com" required>
+                            <textarea rows="4" type="message" placeholder="Write a message..." required
+                                class="block w-full px-4 mb-4 leading-tight text-gray-700 bg-gray-100 border rounded  :placeholder-gray-400 py-7  :text-gray-400  :border-gray-800  :bg-gray-700 "></textarea>
+                            <button
+                                class="w-full py-4 text-sm font-bold leading-normal text-white transition-all duration-300 bg-blue-600 rounded-md  :bg-blue-500  :hover:bg-blue-600 hover:bg-blue-700">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-2xl px-4 mb-16 lg:mb-0 lg:w-1/2 lg:mr-0 lg:ml-auto">
+                <h2 class="mb-6 text-3xl font-bold  :text-gray-400">Get In <span
+                        class="text-blue-600  :text-blue-400">Touch</span>
+                </h2>
+                <div class="flex mb-6 text-gray-400  :text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="text-gray-600 w-7 h-7  :text-gray-400 bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path
+                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z">
+                        </path>
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                    </svg>
+                    <div class="max-w-xl ml-4 text-lg font-semibold tracking-wide text-gray-500  :text-gray-400">
+                        Sukedhara, Kathmandu , Nepal
+                    </div>
+                </div>
+                <div class="flex mb-6 text-gray-400  :text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="text-gray-600 w-7 h-7 bi bi-telephone  :text-gray-400" viewBox="0 0 16 16">
+                        <path
+                            d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z">
+                        </path>
+                    </svg>
+                    <div class="max-w-xl ml-4 text-lg font-semibold tracking-wide text-gray-500  :text-gray-400">
+                        <span> +977-014151329 ,</span> <span> +977-014151678</span>
+                    </div>
+                </div>
+                <div class="flex text-gray-400  :text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="text-gray-600 w-7 h-7  :text-gray-400 bi bi-envelope" viewBox="0 0 16 16">
+                        <path
+                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z">
+                        </path>
+                    </svg>
+                    <div class="max-w-xl ml-4 text-lg font-semibold tracking-wide text-gray-500  :text-gray-400">
+                        info@gmail.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+    <!--footer-->
+    <footer class="text-gray-600 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+          <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-xl">Tailblocks</span>
+          </a>
+          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2020 Tailblocks —
+            <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@knyttneve</a>
+          </p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a class="text-gray-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-500">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-500">
+              <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </footer>
+    
+</body>
+</html>
